@@ -22,12 +22,12 @@ const dataList = [
   }
 ]
 
-function GetList(props) {
+const List = (props) => {
   const list = props.list;
   return (
     <ul>
-        {list.map(function(item) {
-          return (<li key={item.objectId}>
+        {list.map((item) => (
+          <li key={item.objectId}>
             <span>
               <a href={item.url}>{item.title}</a>
             </span>
@@ -35,33 +35,28 @@ function GetList(props) {
             <span> {item.num_comments}</span>
             <span> {item.points}</span>
           </li>
-          );
-        })}
+        ))}
       </ul>
   )
 }
 
-function Search() {
-  return (
-    <div>
-      <label htmlFor="search">Search: </label>
-      <input id="search" type="text"/>
-    </div>
-  )
-}
+const Search = () => (
+  <div>
+    <label htmlFor="search">Search: </label>
+    <input id="search" type="text"/>
+  </div>
+);
 
-function App() {
-  return (
-      <div>
-        <h1>My Hacker Stories</h1>
-        
-        <Search />
+const App = () => (
+  <div>
+    <h1>My Hacker Stories</h1>
+    
+    <Search />
 
-        <hr />
+    <hr />
 
-        <GetList list={dataList} />
-      </div>
-  )
-}
+    <List list={dataList} />
+  </div>
+);
 
 export default App
